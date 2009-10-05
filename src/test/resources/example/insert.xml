@@ -1,0 +1,5 @@
+<dataset>
+  <emp empno="1" ename="foo" hiredate="2009-04-01" sal="100.00"/>
+  <emp empno="2" ename="bar" hiredate="2009-07-01" sal="130.00"/>
+  <emp empno="3" ename="baz" hiredate="2009-10-01" sal="80.00"/>
+</dataset>
