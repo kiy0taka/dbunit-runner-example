@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 public class EmpDao {
 
@@ -61,5 +62,9 @@ public class EmpDao {
             connection,
             "delete from emp where empno=?",
             empno);
+    }
+
+    public long newSequence() throws SQLException {
+        return (Long) new QueryRunner().query(connection, "select nextval('my_seq')", new ScalarHandler());
     }
 }

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.h2.security.AES;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.kiy0taka.dbunit.DbUnitRunner;
@@ -98,5 +99,10 @@ public class EmpDaoTest {
         int count = dao.delete(2);
 
         assertEquals(1, count);
+    }
+
+    @DbUnitTest(init="emp.xml", sql="alter sequence my_seq restart with 100")
+    public void newSequence() throws SQLException {
+        assertEquals(100L, dao.newSequence());
     }
 }
